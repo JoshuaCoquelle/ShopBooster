@@ -7,6 +7,7 @@
       class="flex flex-col items-end justify-end h-56 w-full bg-cover"
     >
       <button
+        @click="addProductToCart"
         class="p-2 rounded-full bg-primary text-white mx-5 -mb-4 hover:bg-black focus:outline-none"
       >
         <svg
@@ -28,7 +29,7 @@
     <div class="px-5 py-3">
       <p class="text-gray-700 uppercase text-xs">{{ props.product.title }}</p>
       <p class="text-gray-500 mt-2 text-sm font-semibold">
-        ${{ Math.floor(product.price) }}
+        ${{ Math.round(product.price) }}
       </p>
     </div>
   </div>
@@ -36,8 +37,18 @@
 
 <script setup lang="ts">
 import type { IProduct } from "@/products/product.types";
+import { useProductStore } from "@/products/product.store";
+import { useCartStore } from "@/cart/cart.store";
 
 const props = defineProps({
   product: Object as IProduct,
 });
+
+const addProductToCart = () => {
+  const productStore = useProductStore();
+  const cartStore = useCartStore();
+
+  cartStore.addToCart(props.product);
+  productStore.removeProduct(props.product.id);
+};
 </script>

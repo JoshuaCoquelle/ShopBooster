@@ -1,14 +1,14 @@
 <template>
-  <nav class="p-4 mb-10 shadow">
+  <nav class="p-4 mb-5 shadow">
     <div class="container flex justify-between items-center mx-auto">
       <RouterLink to="/" class="text-primary text-2xl font-bold">
         ShopBooster
       </RouterLink>
 
-      <div class="flex items-center hover:cursor-zoom-in">
+      <div class="flex items-center">
         <RouterLink to="cart">
           <svg
-            class="h-5 w-5"
+            class="h-7 w-7 mr-2"
             fill="none"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -21,6 +21,10 @@
             ></path>
           </svg>
         </RouterLink>
+
+        <span class="text-primary text-bold">
+          {{ cartStore.cartItemCount }}
+        </span>
       </div>
     </div>
   </nav>
@@ -28,4 +32,7 @@
 
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
+import { useCartStore } from "@/cart/cart.store";
+
+const cartStore = useCartStore();
 </script>

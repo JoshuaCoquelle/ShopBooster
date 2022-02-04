@@ -16,8 +16,18 @@ export const useProductStore = defineStore({
         const products: IProduct[] = await res.json();
         this.products = products;
       } catch (error) {
-        alert(error);
+        alert("🤪 🤪 🤪");
       }
+    },
+
+    addProduct(product: IProduct) {
+      this.products.push(product);
+    },
+
+    removeProduct(productId: Pick<"id", IProduct>) {
+      this.products = this.products.filter(
+        (product: IProduct) => product.id !== productId
+      );
     },
   },
 });
