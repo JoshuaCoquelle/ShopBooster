@@ -24,7 +24,7 @@ export const useProductStore = defineStore({
       this.products.push(product);
     },
 
-    removeProduct(productId: Pick<"id", IProduct>) {
+    removeProduct(productId: IProduct["id"]) {
       this.products = this.products.filter(
         (product: IProduct) => product.id !== productId
       );

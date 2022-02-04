@@ -12,8 +12,7 @@
 
     <div v-else class="flex justify-center items-center h-[50vh]">
       <div
-        style="border-top-color: transparent"
-        class="w-10 h-10 border-4 border-primary border-solid rounded-full animate-spin"
+        class="w-10 h-10 border-4 border-primary border-solid rounded-full animate-spin border-t-transparent"
       />
     </div>
 

@@ -36,13 +36,10 @@
 </template>
 
 <script setup lang="ts">
-import type { IProduct } from "@/products/product.types";
 import { useProductStore } from "@/products/product.store";
 import { useCartStore } from "@/cart/cart.store";
 
-const props = defineProps({
-  product: Object as IProduct,
-});
+const props = defineProps(["product"]);
 
 const addProductToCart = () => {
   const productStore = useProductStore();

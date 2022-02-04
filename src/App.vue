@@ -9,9 +9,9 @@ import AppShell from "@/layout/AppShell.vue";
 
 onMounted(async () => {
   const productStore = useProductStore();
-  const cartSet = localStorage.getItem("cart") !== null;
-  const productsSet = localStorage.getItem("products") !== null;
+  const cartCached = localStorage.getItem("cart") !== null;
+  const productsCached = localStorage.getItem("product") !== null;
 
-  if (!cartSet || !productsSet) await productStore.setProducts();
+  if (!cartCached && !productsCached) await productStore.setProducts();
 });
 </script>
