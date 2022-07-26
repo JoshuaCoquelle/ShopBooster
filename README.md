@@ -21,8 +21,3 @@ npm run dev
 - Vue 3 + Composition API
 - Pinia state management
 - TailwindCSS for rapid UI development
-
-## LifeBooster Note
-Run ```localStorage.clear()``` from chrome console if you've "purchased" all items from the shop.
-The store is cached and rehydrated from localStorage and will not re-fetch all products
-once they have all been purchased/checked out.
